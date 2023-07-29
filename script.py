@@ -2,7 +2,7 @@
 import psycopg2
 
 # O seguinte import seria para realizar requisições HTTP e assim conseguir consumir apis
-# import requests
+#import requests
 
 import datetime
 
@@ -26,7 +26,7 @@ procedimento varchar(50) not null,\
 medicamento varchar(50) not null,\
 opm varchar(50) not null);"""
 
-# cursor.execute(sql1)
+cursor.execute(sql1)
 
 sql2 = """copy stg_prontuario.copia_sigtap(\
 procedimento, medicamento, opm)\
@@ -34,20 +34,20 @@ from 'C:\git\eds-avaliacao-data-engineer\data.csv'\
 delimiter ','\
 csv header;"""
 
-# cursor.execute(sql2)
+cursor.execute(sql2)
 
 # 6.
 # As próximas duas linhas exemplificam o consumo de uma api em um determinado endpoint
-# api_url = "https://sigtap.api/registros"
-# response = requests.get(api_url).json()
+#api_url = "https://sigtap.api/registros"
+#response = requests.get(api_url).json()
 
 # Essa seria a consulta do problema 5 adaptada para o uso de objetos do tipo JSON
-# sql3 = """insert into stg_prontuario.copia_sigtap\
-# select procedimento, medicamento, opm\
-# from json_populate_recordset(null::stg_prontuario.copia_sigtap, %s);"""
+#sql3 = """insert into stg_prontuario.copia_sigtap\
+#select procedimento, medicamento, opm\
+#from json_populate_recordset(null::stg_prontuario.copia_sigtap, %s);"""
 
 # E essa seria a forma de executar o script sql passando o objeto salvo na variável response
-# cursor.execute(sql3, response)
+#cursor.execute(sql3, response)
 
 
 # 9.
